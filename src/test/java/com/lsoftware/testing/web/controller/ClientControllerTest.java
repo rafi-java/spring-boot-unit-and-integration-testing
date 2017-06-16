@@ -21,8 +21,15 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.web.context.WebApplicationContext;
+import org.junit.Before;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 
 @RunWith(SpringRunner.class)
+@WebMvcTest(ClientController.class)
 public class ClientControllerTest {
 
     @Autowired
@@ -33,6 +40,12 @@ public class ClientControllerTest {
 
     @Autowired
     ObjectMapper objectMapper;
+    
+    @Before
+    public void setUp() {
+        //this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new ClientController(createClientServiceMock)).build();
+    }
 
     @Test
     public void testCreateClientSuccessfully() throws Exception {
