@@ -10,6 +10,9 @@ node {
 	stage('check java') {
             sh "java -version"
 	    sh 'export DOCKER_HOST=https://192.168.42.247:2376'
+            sh 'export DOCKER_API_VERSION=1.23'
+	sh 'export DOCKER_TLS_VERIFY=1'
+	sh 'export DOCKER_CERT_PATH=/home/mrafi/.minikube/certs'
         }
 	
 	stage('verify') {
