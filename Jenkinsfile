@@ -11,4 +11,20 @@ node {
         }
 
     }
+
+    stage('verify') {
+	sh 'mvn -version'
+
+    stage('clean') {
+        sh "mvn clean"
+    }
+
+    stage('backend tests') {
+        sh "mvn test"
+    }
+
+    stage('packaging') {
+        #sh "mvn package -Pprod -DskipTests"
+	sh "mvn package -DskipTests"
+    }
 }
