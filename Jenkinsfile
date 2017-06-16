@@ -9,6 +9,7 @@ node {
     
 	stage('check java') {
             sh "java -version"
+	    sh 'export DOCKER_HOST=tcp://127.0.0.1:4243'
         }
 	
 	stage('verify') {
