@@ -10,7 +10,7 @@ node {
             sh "java -version"
         }
 	stage('verify') {
-        sh 'mvn -version'
+        sh "mvn -version"
 
 	stage('clean') {
         	sh "mvn clean"
