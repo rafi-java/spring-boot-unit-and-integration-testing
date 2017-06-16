@@ -5,7 +5,7 @@ node {
         checkout scm
     }
 
-    docker.image('maven:3.5.0-jdk-8').inside('-v /tmp/m2:/home/$USER/.m2') {
+    docker.image('maven:3.5.0-jdk-8').inside('-v /tmp/m2:/home/mrafi/.m2') {
     
 	stage('check java') {
             sh "java -version"
