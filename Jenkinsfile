@@ -5,7 +5,7 @@ node {
         checkout scm
     }
 
-    docker.image('openjdk:8').inside('-u root') {
+    docker.image('maven:3.3-jdk-8').inside('-u root') {
     
 	stage('check java') {
             sh "java -version"
@@ -14,6 +14,10 @@ node {
 	stage('verify') {
 	    sh 'mvn -version'
 	}
+	
+	stage('clean') {
+            sh 'mvn clean'
+        }
 
     }
 }
