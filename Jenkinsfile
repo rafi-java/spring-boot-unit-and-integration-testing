@@ -7,6 +7,9 @@ node {
 
     docker.image('openjdk:8').inside('-u root') {
     
+	stage('check java') {
+            sh "java -version"
+        }
 	
 	stage('verify') {
 	    sh 'mvn -version'
