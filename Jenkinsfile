@@ -16,20 +16,20 @@ node {
 	    sh 'mvn -version'
 	}
 	
-	stage('clean') {
-            sh 'mvn clean'
-        }
+	//stage('clean') {
+        //    sh 'mvn clean'
+        //}
 	
-	stage('backend tests') {
-            sh  'mvn test'
-        }
+	//stage('backend tests') {
+        //    sh  'mvn test'
+        //}
 
-        stage('packaging') {
-            sh 'mvn package -DskipTests'
-        }
+        //stage('packaging') {
+        //    sh 'mvn package -DskipTests'
+        //}
 	
 	stage('docker build') {
-	    sh 'mvn docker:build'
+	    sh 'mvn clean package -DskipTests=true docker:build'
 	}
 
 	stage('publish docker') {
