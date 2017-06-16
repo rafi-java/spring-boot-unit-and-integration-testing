@@ -9,23 +9,22 @@ node {
     
 stages {
 	stage('check java') {
-            sh "java -version"
+            sh 'java -version'
         }
 	
 	stage('verify') {
-	    sh "mvn -version"
+	    sh 'mvn -version'
 
         stage('clean') {
-            sh "mvn clean"
+            sh 'mvn clean'
         }
 
         stage('backend tests') {
-            sh "mvn test"
+            sh 'mvn test'
         }
 
         stage('packaging') {
-            #sh "mvn package -Pprod -DskipTests"
-            sh "mvn package -DskipTests"
+            sh 'mvn package -DskipTests'
         }
     }
 
