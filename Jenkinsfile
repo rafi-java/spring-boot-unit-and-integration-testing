@@ -5,11 +5,11 @@ node {
         checkout scm
     }
 
-    docker.image('maven:3.5.0-jdk-8').inside('-u root') {
+    docker.image('maven:3.5.0-jdk-8').args('-v /tmp/m2:~/.m2').inside('-u root') {
     
 	stage('check java') {
             sh "java -version"
-	    sh 'export DOCKER_HOST=tcp://127.0.0.1:4243'
+	    sh 'export DOCKER_HOST=tcp://192.168.42.247:2376'
         }
 	
 	stage('verify') {
