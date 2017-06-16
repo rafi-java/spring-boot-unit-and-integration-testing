@@ -9,7 +9,7 @@ node {
     
 	stage('check java') {
             sh "java -version"
-	    sh 'export DOCKER_HOST=tcp://192.168.42.247:2376'
+	    sh 'export DOCKER_HOST=https://192.168.42.247:2376'
         }
 	
 	stage('verify') {
