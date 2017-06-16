@@ -15,8 +15,9 @@ pipeline {
             steps {
                 sh 'mvn --version'
                 sh 'java -version'
-		input 'Publish?'
 		sh 'mvn package -DskipTests=true'
+		input 'Publish?'
+		
 		/*
 		Publish?
 		Proceed or Abort
