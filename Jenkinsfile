@@ -62,8 +62,8 @@ try {
 
 } catch (error) {
        echo 'Cleanup after fail'
-	echo 'error$error'
-echo error.stackTrace()
+	print error
+println error.stackTrace()
        throw error
    } finally {
        echo 'finally'
