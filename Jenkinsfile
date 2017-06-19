@@ -47,7 +47,7 @@ node {
 	    println docker.imageName()
 	    println docker.image()
 	    println docker.image().imageName()
-            docker.withRegistry('http://localhost:5000', 'docker-registry-local') {
+            docker.withRegistry('localhost:5000', 'docker-registry-local') {
                 //dockerImage.push 'latest'
 		echo '$USER-PUSHING TO REGISTRY'
 		def maven = docker.image("localhost:5000/microservice/spring-boot-testing-levels")
