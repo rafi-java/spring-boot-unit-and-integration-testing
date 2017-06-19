@@ -34,10 +34,10 @@ node {
 	stage('docker build') {
 	    sh 'mvn clean package -DskipTests=true docker:build'
 	    sh 'echo $USER'
-            docker.withRegistry('http://localhost:5000', 'docker-registry-local') {
+            //docker.withRegistry('http://localhost:5000', 'docker-registry-local') {
                 //dockerImage.push 'latest'
-		docker.image('microservice/spring-boot-testing-levels').push 'latest'
-            }
+		//docker.image('microservice/spring-boot-testing-levels').push 'latest'
+            //}
 	}
 
 	//stage('publish docker') {
