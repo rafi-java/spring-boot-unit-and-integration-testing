@@ -6,7 +6,8 @@ node {
     }
 
     //docker.image('maven:3.5.0-jdk-8').inside('-v /tmp/m2:/home/mrafi/.m2') {
-    
+    docker.withRegistry('localhost:5000', 'docker-registry-local') {
+ 
 	stage('check java') {
             sh "java -version"
 	    sh 'export DOCKER_HOST=https://192.168.42.247:2376'
@@ -53,7 +54,7 @@ node {
 		def maven = docker.image("localhost:5000/microservice/spring-boot-testing-levels")
                 sh "echo ${maven.imageName()} -- ${maven.id}"
             //}
-        }
+    }    }
 
     //}
 }
