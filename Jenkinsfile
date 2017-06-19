@@ -6,7 +6,7 @@ node {
     }
 
     //docker.image('maven:3.5.0-jdk-8').inside('-v /tmp/m2:/home/mrafi/.m2') {
-    docker.withRegistry('localhost:5000', 'docker-registry-local') {
+    docker.withDockerRegistry('localhost:5000', 'docker-registry-local') {
  
 	stage('check java') {
             sh "java -version"
