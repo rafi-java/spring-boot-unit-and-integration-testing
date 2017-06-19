@@ -55,7 +55,7 @@ try {
 		echo '$USER-PUSHING TO REGISTRY'
 		def maven = docker.image("localhost:5000/microservice/spring-boot-testing-levels")
                 sh "echo ${maven.imageName()} -- ${maven.id}"
-		maven.push 'latest'
+		maven.push 
             //}
     }    }
 
