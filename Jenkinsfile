@@ -41,6 +41,9 @@ node {
 	}
 
 	stage('publish docker') {
+	    echo 'HELLO Docker'
+            echo 'docker'
+	    echo '$docker'
             docker.withRegistry('http://localhost:5000', 'docker-registry-local') {
                 //dockerImage.push 'latest'
 		echo '$USER-PUSHING TO REGISTRY'
