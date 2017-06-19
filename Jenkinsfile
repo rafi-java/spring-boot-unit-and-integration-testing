@@ -8,7 +8,7 @@ node {
 try {
 
     //docker.image('maven:3.5.0-jdk-8').inside('-v /tmp/m2:/home/mrafi/.m2') {
-    docker.withRegistry('localhost:18081', 'nexus-registry') {
+    docker.withRegistry('http://localhost:18081', 'nexus-registry') {
  
 	stage('check java') {
             sh "java -version"
