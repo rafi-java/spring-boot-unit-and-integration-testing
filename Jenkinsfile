@@ -53,9 +53,9 @@ try {
             //docker.withRegistry('localhost:5000', 'docker-registry-local') {
                 //dockerImage.push 'latest'
 		echo '$USER-PUSHING TO REGISTRY'
-		def maven = docker.image("localhost:5000/microservice/spring-boot-testing-levels")
+		def maven = docker.image("microservice/spring-boot-testing-levels")
                 sh "echo ${maven.imageName()} -- ${maven.id}"
-		maven.push '${maven.imageName():latest' 
+		maven.push  
             //}
     }    }
 

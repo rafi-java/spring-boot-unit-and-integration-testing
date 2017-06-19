@@ -64,7 +64,8 @@
             <artifactId>docker-maven-plugin</artifactId>
             <version>0.4.13</version>
             <configuration>
-                <imageName>${docker.registry}/${docker.image.prefix}/${project.artifactId}</imageName>
+                <!--<imageName>${docker.registry}/${docker.image.prefix}/${project.artifactId}</imageName>-->
+                <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 		<pushImage>false</pushImage>
                 <dockerDirectory>src/main/docker</dockerDirectory>
 		<!--<dockerHost>https://192.168.42.247:2376</dockerHost>-->
