@@ -63,7 +63,7 @@ try {
 } catch (error) {
        echo 'Cleanup after fail'
 	echo 'error$error'
-echo error
+echo error.stackTrace()
        throw error
    } finally {
        echo 'finally'
