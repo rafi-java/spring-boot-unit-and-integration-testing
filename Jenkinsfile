@@ -62,6 +62,8 @@ try {
 
 } catch (error) {
        echo 'Cleanup after fail'
+	echo 'error$error'
+echo error
        throw error
    } finally {
        echo 'finally'
