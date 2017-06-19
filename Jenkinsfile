@@ -36,7 +36,7 @@ node {
 	    sh 'echo $USER'
             docker.withRegistry('http://localhost:5000', 'docker-registry-local') {
                 //dockerImage.push 'latest'
-		docker.image('microservice/spring-boot-testing-levels').push()
+		docker.image('microservice/spring-boot-testing-levels').push 'latest'
             }
 	}
 
