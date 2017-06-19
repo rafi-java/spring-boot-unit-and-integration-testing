@@ -40,11 +40,14 @@ node {
             //}
 	}
 
-	//stage('publish docker') {
-        //    docker.withRegistry('http://localhost:5000', 'docker-registry-local') {
-        //        dockerImage.push 'latest'
-        //    }
-       // }
+	stage('publish docker') {
+            docker.withRegistry('http://localhost:5000', 'docker-registry-local') {
+                //dockerImage.push 'latest'
+		echo '$USER-PUSHING TO REGISTRY'
+		def maven = docker.image("localhost:5000/microservice/spring-boot-testing-levels")
+                sh "echo ${maven.imageName()} -- ${maven.id}"
+            }
+        }
 
     //}
 }
